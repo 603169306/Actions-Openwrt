@@ -18,7 +18,7 @@ sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # unlock 1200Mhz
 sed -i \
--e 's/^@@ -111,49 +111,89 @@ static struct rt2880_pmx_group mt7621_pi/@@ -113,49 +113,93 @@ static struct rt2880_pmx_group mt7621_pi/' \
+-e 's/^@@.*@@ static struct rt2880_pmx_group mt7621_pi/@@ -113,49 +113,93 @@ static struct rt2880_pmx_group mt7621_pi/' \
 -e 's/^+\tu32 xtal_clk, cpu_clk, bus_clk;/+\tu32 xtal_clk, cpu_clk, bus_clk, i;/' \
 -e '/^+\t\tpll = rt_memc_r32(MEMC_REG_CPU_PLL);/a\
 +\t\tpll &= ~(0x7ff);\
